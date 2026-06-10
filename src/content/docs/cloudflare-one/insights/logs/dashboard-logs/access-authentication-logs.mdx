@@ -1,19 +1,4 @@
----
-pcx_content_type: reference
-products:
-  - cloudflare-one
-title: Access authentication logs
-tags:
-  - Logging
-sidebar:
-  order: 2
-description: Use Access authentication logs to review authentication events and
-  requests to protected URI paths and infrastructure targets.
----
-
-import { GlossaryTooltip, TabItem, Tabs, APIRequest } from "~/components";
-
-Access authentication logs help you track who accessed your protected applications, when they accessed them, and whether they were allowed in. Use these logs to investigate suspicious login attempts, audit user activity, or troubleshoot access issues.
+owed in. Use these logs to investigate suspicious login attempts, audit user activity, or troubleshoot access issues.
 
 Cloudflare Access generates two types of audit logs:
 
@@ -110,8 +95,7 @@ Identity-based authentication logs contain the following fields:
 | **Event**        | Type of authentication event, such as a login attempt.                                                                   |
 | **Connection**   | Identity provider used to authenticate (for example, `saml`, `onetimepin`, `google-apps`).                               |
 | **Allow**        | Whether the authentication attempt was allowed (`true`) or denied (`false`).                                             |
-| **Request time** | Timestamp of the authentication event.                                                                                   |
-| **Ray ID**       | A unique identifier for every request through Cloudflare. Useful for tracing a specific request through Cloudflare logs. |
+| **Request time** | Timestamp of the authentication event.                            ID**       | A unique identifier for every request through Cloudflare. Useful for tracing a specific request through Cloudflare logs. |
 | **Country**      | Country associated with the user's IP address.                                                                           |
 
 ##### Infrastructure applications
@@ -164,14 +148,10 @@ When a user requests a URL, Access appends the user identity from that token as 
    "EdgeEndTimestamp": "2019-11-10T09:51:27Z",
    "EdgeResponseBytes": 4570,
    "EdgeResponseStatus": 200,
-   "EdgeStartTimestamp": "2019-11-10T09:51:27Z",
-   "RayID": "yzrCqUhRd6DVz72a",
-   "RequestHeaders":{"cf-access-user":"srhea"}
-}
-```
+   "EdgeStartTimestamp":
 
 ### Using the `cf-access-user` field
 
 In addition to the HTTP request fields available in Cloudflare Enterprise logging, requests made to applications behind Access include the `cf-access-user` field, which contains the user identity string. This offers another tool for auditing user behavior. To add the `cf-access-user` field to your HTTP request logs, you must add it as a custom field. Refer to [Custom fields](/logs/logpush/logpush-job/custom-fields/) for instructions.
 
-Keep in mind that Access does not log all interactions. Per-request audit logs can indicate that a specific user visited `domain.com/admin` and then `domain.com/admin/panel`, but the logs only capture interactions that result in a new HTTP request. Purely client-side interactions that do not generate server requests are not logged.
+Keep in mind that Access does not log all interactions. Per-request audit logs can indi
